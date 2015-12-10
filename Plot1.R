@@ -14,7 +14,8 @@ Plot1 <- function(){
 	hpcFiltered <- filter(hpc, Date == as.Date("2007-02-01") | Date == as.Date("2007-02-02"))
   
 	## use Date Column from filtered Data Table to graph Histogram
+  png(filename = "Plot1.png")
 	par(cex = .7)
 	hist(hpcFiltered$Global_active_power, xlab = "Global Active Power (kilowatts)", ylab = "Frequency", col = "red", main = "Global Active Power")
-  
+  dev.off()
 }

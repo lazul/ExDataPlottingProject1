@@ -20,12 +20,13 @@ Plot3 <- function(){
   hpcFiltered$DT <- strptime(hpcFiltered$DT, "%d/%m/%Y %H:%M:%S")
   
   ## Plot Graph
-  par(cex = .65, mar = c(4,4,4,4))
+  png(filename = "Plot3.png")
+  par(mar = c(4,4,4,4))
   with(hpcFiltered, plot(DT, Sub_metering_1, type = "n", ylab = "Energy sub metering", xlab = ""))
   with(hpcFiltered, lines(DT, Sub_metering_1))
   with(hpcFiltered, lines(DT, Sub_metering_2, col = "red"))
   with(hpcFiltered, lines(DT, Sub_metering_3, col = "blue"))
   legend("topright", lty = 1, col = c("black","red","blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-  
+  dev.off()
   
 }

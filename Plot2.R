@@ -20,7 +20,8 @@ Plot2 <- function(){
   hpcFiltered$DT <- strptime(hpcFiltered$DT, "%d/%m/%Y %H:%M:%S")
   
   ## Plot Graph
+  png(filename = "Plot2.png")
   par(cex = .7)
   with(hpcFiltered, plot(DT, Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)"))
-  
+  dev.off()
 }

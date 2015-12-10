@@ -20,7 +20,8 @@ Plot4 <- function(){
   hpcFiltered$DT <- strptime(hpcFiltered$DT, "%d/%m/%Y %H:%M:%S")
   
   ## Plot Graph
-  par(cex = .65, mar = c(4,4,4,4), mfcol = c(2,2))
+  png(filename = "Plot4.png")
+  par(mar = c(4,4,4,4), mfcol = c(2,2))
   
   with(hpcFiltered, plot(DT, Global_active_power, type = "l", xlab = "", ylab = "Global Active Power"))
   
@@ -28,12 +29,12 @@ Plot4 <- function(){
   with(hpcFiltered, lines(DT, Sub_metering_1))
   with(hpcFiltered, lines(DT, Sub_metering_2, col = "red"))
   with(hpcFiltered, lines(DT, Sub_metering_3, col = "blue"))
-  legend("topright", lty = 1, col = c("black","red","blue"), bty = "n", cex = .6, legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+  legend("topright", lty = 1, col = c("black","red","blue"), bty = "n", cex = .84, legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
   
   with(hpcFiltered, plot(DT, Voltage, type = "l", xlab = "datetime", ylab = "Voltage"))
   with(hpcFiltered, plot(DT, Global_reactive_power, type = "l", xlab = "datetime"))
   
+  dev.off()
   
 }
-
 
